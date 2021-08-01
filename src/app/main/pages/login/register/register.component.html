@@ -1,0 +1,40 @@
+<div class="container module-container">
+  <div class="icon">
+    <button mat-icon-button aria-label="go back" [routerLink]="['/login']">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+
+  <div class="content-form" [formGroup]="form">
+      <h3>Registrate</h3>
+      <p>Ingresa tus datos para continuar</p>
+      <div class="content-inputs">
+        <mat-form-field class="input-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name">
+          <mat-error *ngIf="isValid('name')">
+              El nombre es requerido
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="input-full-width">
+            <mat-label>Correo electrónico</mat-label>
+            <input autocomplete="off" matInput formControlName="email">
+            <mat-error *ngIf="isValid('email')">
+                Ingrese un email valido
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input autocomplete="off" matInput type="password" formControlName="password" >
+            <mat-error *ngIf="isValid('password')">
+                La contraseña es requerida
+            </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="content-button">
+          <button mat-button [disabled]="form.invalid || loading" (click)="submit()" [class.spinner]="loading">REGISTRARTE</button>
+      </div>
+    </div>
+</div>

@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MainModule } from './main/main.module';
+import { SharedModule } from './core/modules/shared.module';
+import { InterceptorService } from './core/services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -10,9 +15,19 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MainModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

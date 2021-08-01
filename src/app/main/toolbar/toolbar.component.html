@@ -1,0 +1,20 @@
+<mat-toolbar>
+    <div class="content-toolbar">
+        <div class="menu">
+            <button mat-button class="btn-person" [routerLink]="['/person']" routerLinkActive="router-link-active" >
+                <mat-icon>groups</mat-icon>
+                Personas
+            </button>
+            <button mat-button [routerLink]="['/report']" routerLinkActive="router-link-active">
+                <mat-icon>bar_chart</mat-icon>
+                Reporte
+            </button>
+        </div>
+        <div class="content-logout">
+            <button mat-button (click)="logOut()">
+                <mat-icon>exit_to_app</mat-icon>
+                Cerrar sesión
+            </button>
+        </div>
+    </div>
+</mat-toolbar>

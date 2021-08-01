@@ -1,0 +1,33 @@
+<div class="container module-container">
+  <div class="icon">
+    <h1>JUAN DANIEL RIVERA LAZARO</h1>
+  </div>
+
+  <div class="content-form" [formGroup]="form">
+      <h3>Bienvenido</h3>
+      <p>Ingresa tus datos para continuar</p>
+      <div class="content-inputs">
+          <mat-form-field class="input-full-width">
+              <mat-label>Correo electrónico</mat-label>
+              <input matInput formControlName="email">
+              <mat-error *ngIf="isValid('email')">
+                  Ingrese un email valido
+              </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="input-full-width">
+              <mat-label>Contraseña</mat-label>
+              <input matInput type="password" formControlName="password" >
+              <mat-error *ngIf="isValid('password')">
+                  La contraseña es requerida
+              </mat-error>
+          </mat-form-field>
+      </div>
+      <div class="link-subcribe"> 
+        <a [routerLink]="['registro']">Registrarse</a>
+      </div>
+      <div class="content-button">
+          <button mat-button [disabled]="form.invalid || loading" (click)="submit()" [class.spinner]="loading">INGRESAR</button>
+      </div>
+    </div>
+</div>

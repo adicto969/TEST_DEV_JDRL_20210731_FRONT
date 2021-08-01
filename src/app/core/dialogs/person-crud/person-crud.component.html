@@ -1,0 +1,67 @@
+<div class="dialog-content-wrapper">
+  <mat-toolbar matDialogTitle class="m-0">
+    <span class="title dialog-title">Persona Fisica</span>
+    <button mat-button class="toggle-button-navbar mat-icon-button" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="content-form" [formGroup]="form">
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre</mat-label>
+        <input matInput name="Nombre" formControlName="Nombre">
+        <mat-error *ngIf="!isValid('Nombre')">
+            Ingrese su nombre
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido Paterno</mat-label>
+        <input matInput name="ApellidoPaterno" formControlName="ApellidoPaterno">
+        <mat-error *ngIf="!isValid('ApellidoPaterno')">
+          Ingrese su apellido
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>Apellido Materno</mat-label>
+        <input matInput name="ApellidoMaterno" formControlName="ApellidoMaterno">
+        <mat-error *ngIf="!isValid('ApellidoMaterno')">
+          Ingrese su apellido
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>RFC</mat-label>
+        <input matInput name="RFC" formControlName="RFC">
+        <mat-error *ngIf="!isValid('RFC')">
+            Ingrese un formato valido (13 caracteres)
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha De Nacimiento</mat-label>
+        <input matInput name="FechaNacimiento" [matDatepicker]="picker" formControlName="FechaNacimiento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="!isValid('FechaNacimiento')">
+          Ingresa una fecha valida 
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="m-0" fxLayoutAlign="space-around center">
+    <div class="content-botton">
+        <div class="content-btn-left">
+            <button mat-button [disabled]="form.invalid || loading" (click)="submit()" [class.spinner]="loading">GUARDAR CAMBIOS</button>
+        </div>
+        <div class="content-btn-right"><button mat-button [mat-dialog-close]="false">CANCELAR</button></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+app-register {
+    background-color: #2ccf96;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+
+    .container {
+        width: 80%;
+        max-width: 440px;
+        margin: auto;
+        background-color: white;
+        border-radius: 15px;
+
+        .icon {
+            text-align: center;
+            height: 90px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding: 0 30px;
+        }
+
+        .content-form {
+            color: #404040;
+            padding: 40px 50px;
+            border-radius: 20px;
+            background-color: white;
+            padding-top: 0;
+
+            h3 {
+                font-size: 30px;
+                text-align: center;
+                font-weight: inherit;
+                margin: 0;
+            }
+
+            p {
+                text-align: center;
+            }
+
+            .content-inputs {
+                margin-top: 15px;
+
+                .mat-form-field-appearance-legacy .mat-form-field-label {
+                    color: #404040;
+                }
+
+                .mat-form-field-appearance-legacy .mat-form-field-underline {
+                    background-color: #404040;
+                }
+
+                .mat-form-field.mat-focused .mat-form-field-ripple {
+                    background-color: #404040;
+                }
+            }
+
+            .content-button {
+                margin: 15px 0 30px 0;
+
+                button {
+                    width: 100%;
+                    background-color: #33c191;
+                    border-radius: 50px;
+                    padding: 7px 10px;
+                    font-weight: inherit;
+
+                    &:disabled {
+                        color: white;
+                        opacity: .5;
+                    }
+                }
+
+                .spinner {
+                    &:before {
+                        content: '';
+                        box-sizing: border-box;
+                        position: absolute;
+                        top: 50%;
+                        left: 90%;
+                        width: 20px;
+                        height: 20px;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                        border-radius: 50%;
+                        border: 2px solid #ffffff;
+                        border-top-color: #006;
+                        animation: spinner .8s linear infinite;
+                    }
+                }
+            }
+        }
+    }
+
+    .input-full-width {
+        width: 100%;
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+@keyframes giro{
+    0% {
+        transform: rotate(0deg);
+        border-radius: 50%;
+    }
+    50% {
+        border-radius: 20%;        
+    }    
+    100% {
+        border-radius: 50%;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}

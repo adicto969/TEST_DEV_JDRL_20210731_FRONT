@@ -1,0 +1,30 @@
+@import '../../../app/core/scss/app';
+
+:host {
+    position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 4;
+
+    &.below {
+        z-index: 2;
+    }
+
+    .mat-toolbar {
+        background-color: #2ccf96;
+        color: inherit;
+        position: relative;
+
+        .content-toolbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .menu {
+                .btn-person {
+                    margin-right: 24px;
+                }
+            }
+        }
+    }
+}
